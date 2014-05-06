@@ -1,0 +1,14 @@
+######
+## Ignore this files
+######
+
+*.db
+*.pyc
+*~
+.*
+
+######
+## Accept this files
+######
+
+!.gitignore

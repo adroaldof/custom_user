@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div id="main">
+  <div id="title">
+    <h1>{% trans "Oops! Server error" %}</h1>
+  </div>
+  <p>{% trans "Appears to be that someone is working, or not. Try again in a few minutes." %}</p>
+</div>
+{% endblock content %}

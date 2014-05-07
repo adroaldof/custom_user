@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div id="main">
+  <div id="title">
+    <h1>{% trans "Oops! Bad request" %}</h1>
+  </div>
+  <p>{% trans "The page you are looking for doesn't exists" %}</p>
+</div>
+{% endblock content %}

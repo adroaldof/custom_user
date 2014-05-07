@@ -1,0 +1,42 @@
+/*** Structure ***/
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #636369;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 500px;
+  background-color: #FFF;
+}
+
+.content {
+  width: 960px;
+  min-height: 500px;
+  margin: 0 auto;
+}
+
+/*** Header ***/
+
+header {
+  padding-top: 10px;
+}
+
+/*** Footer ***/
+
+footer {
+  width: 960px;
+  min-height: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  color: #B1AF8D;
+  background: url('../img/bg.png') #ffffff;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.trademark {
+  float: right;
+}

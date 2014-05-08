@@ -27,16 +27,22 @@ header {
 /*** Footer ***/
 
 footer {
-  width: 960px;
-  min-height: 200px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 40px;
   padding: 10px;
   margin: 0 auto;
   color: #B1AF8D;
-  background: url('../img/bg.png') #ffffff;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  background-color: #222222;
+}
+
+.footer {
+  width: 960px;
+  margin: 0 auto;
 }
 
 .trademark {
   float: right;
+  font-size: 10px;
 }

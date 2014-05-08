@@ -11,80 +11,62 @@
 
 {% block extrastylesheets %}{% endblock extrastylesheets %}
 {% endblock style %}
+<main>
+  <div class="wrapper">
 
-<div class="wrapper">
+    <div class="content">
 
-  <div class="content">
+      <header>
+        <nav class="navbar navbar-inverse" role="navigation">
+          <div class="container-fluid">
 
-    <header>
-      <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="{% url 'home' %}">Custom User</a>
+            </div>
 
-          <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'home' %}">Custom User</a>
+            <div class="collapse navbar-collapse">
+
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav pull-right">
+                {% if not user.is_authenticated %}
+                <li><a href="#">{% trans "Login" %}</a></li>
+                <li><a href="#">{% trans "Sign Up" %}</a></li>
+                {% else %}
+                <li>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% if user.short_name %}{{ user.short_name }}{% else %}{% if user.full_name %}{{ user.full_name }}{% else %}{{ user.email }}{% endif %}{% endif %}</a>
+                </li>
+                {% endif %}
+              </ul>
+
+            </div>
+
           </div>
+        </nav>
+      </header>
 
-          <div class="collapse navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
-            </ul>
-
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-    {% block content %}
-      <h1>{% trans "Block to be replaced" %}</h1>
-      <p>{% trans "This message will be replaced and it should never be displayed to final users" %}</p>
-    {% endblock content %}
-    </main>
-
-  </div>
-
-  <div class="footer">
-
-    <footer>
-      <div class="trademark">
-        <p>Trademark 2014 &reg</p>
+      <div class="main-content">
+        {% block content %}
+          <h1>{% trans "Block to be replaced" %}</h1>
+          <p>{% trans "This message will be replaced and it should never be displayed to final users" %}</p>
+        {% endblock content %}
       </div>
 
-      <div class="footer_content">
+    </div>
 
-        <div class="column">
-          <h5></h5>
-          <ul>
-          </ul>
-        </div>
-
-        <div class="column">
-          <h5></h5>
-            <ul>
-            </ul>
-        </div>
-
-        <div class="column">
-          <h5></h5>
-            <ul>
-            </ul>
-        </div>
-
-        <div class="column">
-          <h5></h5>
-          <ul>
-          </ul>
-        </div>
+    <footer>
+      <div class="footer">
+        <span class="trademark">Custom User &reg</span>
       </div>
     </footer>
 
   </div>
-
-</div>
 
 {% block scripts %}
 <script type="text/javascript" src="{% static 'js/jquery-2.1.0.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
 {% block extrascripts %}{% endblock extrascripts %}
 {% endblock scripts %}
+</main>

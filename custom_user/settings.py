@@ -100,3 +100,7 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
+
+
+# Set custom user model
+AUTH_USER_MODEL = 'accounts.CustomUser'

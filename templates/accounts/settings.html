@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}
+{% trans "E-Commerce - User Settings" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+
+    <div class="row">
+      <h2>{% trans "Welcome user" %} {% if user.full_name %}{{ user.full_name }}{% else %}'{{ user.email }}' {% trans "you didn't set your name yet" %}{% endif %}</h2>
+    </div>
+
+{% endblock content%}

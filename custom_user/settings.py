@@ -104,3 +104,9 @@ TEMPLATE_DIRS = (
 
 # Set custom user model
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# Login redirect
+LOGIN_REDIRECT_URL = '/accounts/settings/'
+
+# Append slash on url
+APPEND_SLASH = False

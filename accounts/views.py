@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.template.response import TemplateResponse
 from django.core.urlresolvers import reverse
+from django.http.response import HttpResponseRedirect
 from django.views.generic import UpdateView
 
 from .forms import CustomUserUpdateForm
@@ -9,10 +8,10 @@ from .models import CustomUser
 
 
 @login_required
-def account_settings(request):
-    return TemplateResponse(request, 'accounts/settings.html', {
-        'user': request.user,
-    })
+def user_settings(request):
+    return HttpResponseRedirect(
+        '%s%s' % ('settings/', request.user.pk)
+    )
 
 
 class CustomUserUpdateView(UpdateView):

@@ -8,8 +8,9 @@ from .views import CustomUserUpdateView
 urlpatterns = patterns(
     'accounts.views',
     url(
-        r'^settings/',
-        'account_settings',
+        r'^user',
+        'user_settings'
+    ),
     url(
         r'^settings/(?P<pk>\d+)$',
         CustomUserUpdateView.as_view(),

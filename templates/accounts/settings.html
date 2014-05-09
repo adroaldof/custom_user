@@ -13,4 +13,151 @@
       <h2>{% trans "Welcome user" %} {% if user.full_name %}{{ user.full_name }}{% else %}'{{ user.email }}' {% trans "you didn't set your name yet" %}{% endif %}</h2>
     </div>
 
+    <form action="" method="POST" role="form">
+      {% csrf_token %}
+
+      {% if form.errors %}
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="alert alert-danger">
+            {% for fields in form %}
+              {% for error in fields.errors %}
+                <p class="text-error">{{ error }}</p>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="row">
+        <div class="col-lg-5">
+
+          <div class="row">
+
+            <div class="row">
+              <hr>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="control-label" for="full_name">{% trans "Full name" %}</label>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="form-group">
+                  <input class="form-control input-md" type="text" name="full_name" value="{{ user.full_name }}" id="short_name">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="control-label" for="short_name">{% trans "Short name" %}</label>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="form-group">
+                  <input class="form-control input-md" type="text" name="short_name" value="{{ user.short_name }}" id="short_name">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="control-label" for="email">{% trans "Email" %}</label>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="form-group">
+                  <input class="form-control input-md" type="text" name="email" value="{{ user.email }}" id="email" readonly=true>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="control-label" for="password">{% trans "Password" %}</label>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="form-group">
+                  <a class="btn btn-default btn-md" href="#">{% trans "Change Password" %}</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="row">
+              <hr>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="control-label" for="email2">{% trans "Second Email" %}</label>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="form-group">
+                  <input class="form-control input-md" type="text" name="email2" value="{{ user.email2 }}" id="email2">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="control-label" for="phone_cell">{% trans "Cell Phone" %}</label>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="form-group">
+                  <input class="form-control input-md" type="text" name="phone_cell" value="{{ user.phone_cell }}" id="phone_cell">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="control-label" for="phone_home">{% trans "Home Phone" %}</label>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="form-group">
+                  <input class="form-control input-md" type="text" name="phone_home" value="{{ user.phone_home }}" id="phone_home">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-offset-5">
+          <div class="col-lg-8"><hr></div>
+          <div class="well col-lg-7 col-lg-offset-1">
+
+            <h3>{% trans "Instructions" %}</h3>
+            <p>{% trans "You can put some thing here" %}</p>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-10">
+          <hr>
+          <div class="col-lg-2 col-lg-offset-10">
+            <input class="btn btn-primary btn-block btn-lg" type="submit" value="{% trans "Save" %}"/>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 {% endblock content%}

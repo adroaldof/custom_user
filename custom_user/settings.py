@@ -106,7 +106,7 @@ TEMPLATE_DIRS = (
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Login redirect
-LOGIN_REDIRECT_URL = '/accounts/settings/'
+LOGIN_REDIRECT_URL = '/accounts/user'
 
 # Append slash on url
 APPEND_SLASH = False

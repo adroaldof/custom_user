@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Custom User - Sign Up" %}
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-2">
+      <form class="form-horizontal" method="POST" role="form">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-lg-4 col-lg-offset-1">
+            <h3>{% trans "Login" %}</h3>
+          </div>
+        </div>
+
+        {% if form.errors %}
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="alert alert-danger">
+              <p class="text-error">{% trans "You entered an invalid username or password." %}</p>
+            </div>
+          </div>
+        </div>
+        {% endif %} 
+
+        <div class="row">
+          <div class="col-lg-2 col-lg-offset-2">
+            <div class="form-group">
+              <label class="control-label" for="username">Username</label>
+            </div>
+          </div>
+          <div class="col-lg-6 col-lg-offset-1">
+            <div class="form-group">
+              {{ form.username }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-2 col-lg-offset-2">
+            <div class="form-group">
+              <label class="control-label" for="password">Password</label>
+            </div>
+          </div>
+          <div class="col-lg-6 col-lg-offset-1">
+            <div class="form-group">
+              {{ form.password }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <hr>
+          <div class="col-lg-3 col-lg-offset-8">
+              <input class="btn btn-primary btn-block btn-lg" type="submit" value="{% trans "Sign In" %}" />
+              <input type="hidden" name="next" value="{{ next }}" />
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content%}

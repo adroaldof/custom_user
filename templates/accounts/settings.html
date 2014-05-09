@@ -22,7 +22,7 @@
           <div class="alert alert-danger">
             {% for fields in form %}
               {% for error in fields.errors %}
-                <p class="text-error">{{ error }}</p>
+                <p class="text-error">{{ fields.label_tag }} {{ error }}</p>
               {% endfor %}
             {% endfor %}
           </div>

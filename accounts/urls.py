@@ -8,7 +8,7 @@ from .views import CustomUserUpdateView
 urlpatterns = patterns(
     'accounts.views',
     url(
-        r'^user',
+        r'^user$',
         'user_settings'
     ),
     url(
@@ -18,10 +18,11 @@ urlpatterns = patterns(
     ),
 )
 
+# Login/Logout routes
 urlpatterns += patterns(
     '',
     url(
-        r'^login/$',
+        r'^login$',
         auth_views.login,
         {
             'authentication_form': CustomAuthenticationForm,
@@ -30,7 +31,7 @@ urlpatterns += patterns(
         name='login'
     ),
     url(
-        r'^logout/$',
+        r'^logout$',
         auth_views.logout,
         {'template_name': 'registration/loged_out.html'},
         name='logout'

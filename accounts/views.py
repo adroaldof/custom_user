@@ -9,9 +9,7 @@ from .models import CustomUser
 
 @login_required
 def user_settings(request):
-    return HttpResponseRedirect(
-        '%s%s' % ('settings/', request.user.pk)
-    )
+    return HttpResponseRedirect('settings/%s' % request.user.pk)
 
 
 class CustomUserUpdateView(UpdateView):

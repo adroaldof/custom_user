@@ -1,7 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from django.core.exceptions import ValidationError
-from django.core.validators import validate_email
+from django.contrib.auth.forms import (
+    ReadOnlyPasswordHashField, AuthenticationForm
+)
 from django.forms import TextInput
 from django.utils.translation import ugettext_lazy as _
 
@@ -123,3 +123,23 @@ class CustomUserUpdateForm(forms.ModelForm):
             # ),
         }
         exclude = ('password', 'date_joined', 'last_login')
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+    """
+    It was extended to show how to do it and to insert class on form fields
+    """
+    username = forms.CharField(
+        label=_('Email address'),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control input-md'}
+        ),
+        help_text=_('This email will be you username'),
+    )
+    password = forms.CharField(
+        label=_('Password'),
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control input-md'}
+        ),
+        help_text=_('Strong password is recommended'),
+    )

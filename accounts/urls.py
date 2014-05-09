@@ -37,3 +37,13 @@ urlpatterns += patterns(
         name='logout'
     ),
 )
+
+# Deal with accounts
+urlpatterns += patterns(
+    'accounts.views',
+    url(
+        r'^registrate$',
+        'registrate',
+        name="registrate"
+    )
+)

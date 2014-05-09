@@ -33,7 +33,7 @@
               <ul class="nav navbar-nav pull-right">
                 {% if not user.is_authenticated %}
                 <li><a href="{% url 'login' %}">{% trans "Login" %}</a></li>
-                <li><a href="#">{% trans "Sign Up" %}</a></li>
+                <li><a href="{% url 'registrate' %}">{% trans "Sign Up" %}</a></li>
                 {% else %}
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% if user.short_name %}{{ user.short_name }}{% else %}{% if user.full_name %}{{ user.full_name }}{% else %}{{ user.email }}{% endif %}{% endif %}<b class="caret"></b></a>

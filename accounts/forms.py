@@ -42,7 +42,7 @@ class CustomUserCreationForm(forms.ModelForm):
     class Meta:
         # Point to our CustomUser here instead of default `User`
         model = CustomUser
-        include = ('password1', 'password2')
+        fields = ('email', 'password1', 'password2')
 
     def clean_email(self):
         email = self.cleaned_data.get('email')

@@ -33,7 +33,7 @@ urlpatterns += patterns(
     url(
         r'^logout$',
         auth_views.logout,
-        {'template_name': 'registration/loged_out.html'},
+        {'template_name': 'registration/logged_out.html'},
         name='logout'
     ),
 )

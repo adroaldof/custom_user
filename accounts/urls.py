@@ -86,4 +86,10 @@ urlpatterns += patterns(
         {'template_name': 'registration/password_reset_complete.html'},
         name='password_reset_complete'
     ),
+    url(
+        r'^password/reset/done$',
+        auth_views.password_reset_done,
+        {'template_name': 'registration/password_reset_done.html'},
+        name='password_reset_done'
+    ),
 )
